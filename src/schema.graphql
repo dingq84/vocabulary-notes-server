@@ -1,0 +1,31 @@
+input SentenceInput {
+	meaning: String!
+	sentence: String!
+}
+
+type Sentence {
+	meaning: String!
+	sentence: String!
+}
+
+type Note {
+	id: Int
+	title: String
+	url: String
+	sentences: [Sentence]
+}
+
+type Query {
+	randomNotes: [Note]
+	noteDetail(noteId: Int!): Note
+}
+
+type Mutation {
+	createNote(title: String!, url: String!, sentences: [SentenceInput]): Boolean
+	updateNote(
+		noteId: Int!
+		title: String
+		url: String
+		sentences: [SentenceInput]
+	): Boolean
+}

@@ -1,0 +1,19 @@
+{
+	"environment": "development",
+	"name": "default",
+	"type": "postgres",
+	"host": "localhost",
+	"port": 5432,
+	"username": "postgres",
+	"password": "postgres",
+	"database": "graphql-english-notes",
+	"synchronize": true,
+	"logging": true,
+	"dropSchema": true,
+	"entities": ["src/entities/**/*.ts"],
+	"migrations": ["src/migrations/**/*.ts"],
+	"cli": {
+		"entitiesDir": "src/entities",
+		"migrationsDir": "src/migrations"
+	}
+}
