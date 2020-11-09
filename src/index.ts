@@ -11,7 +11,7 @@ export const startServer = async (): Promise<Server> => {
 		resolvers,
 	})
 	await createConnection()
-	const app = await server.start({ port: 4000 })
+	const app = await server.start({ endpoint: '/graphql' })
 	console.log('Server is running on localhost:4000')
 	return app
 }
