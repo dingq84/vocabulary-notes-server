@@ -1,6 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 const dir = isProd ? 'dist' : 'src'
-console.log(isProd)
+const extension = isProd ? 'js' : 'ts'
+
 let settings = {
 	name: 'default',
 	type: 'postgres',
@@ -11,8 +12,8 @@ let settings = {
 	synchronize: true,
 	logging: false,
 	// dropSchema: true,
-	entities: [`${dir}/entities/**/*.(js|ts)`],
-	migrations: [`${dir}/migrations/**/*.(js|ts)`],
+	entities: [`${dir}/entities/**/*.${extension}`],
+	migrations: [`${dir}/migrations/**/*.${extension}`],
 	cli: {
 		entitiesDir: `${dir}/entities`,
 		migrationsDir: `${dir}/migrations`,
