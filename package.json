@@ -26,6 +26,7 @@
 		"@graphql-codegen/typescript": "^1.17.11",
 		"@graphql-codegen/typescript-resolvers": "^1.17.10",
 		"bcryptjs": "^2.4.3",
+		"express": "^4.17.1",
 		"graphql-yoga": "^1.18.3",
 		"pg": "^8.4.2",
 		"reflect-metadata": "^0.1.13",
