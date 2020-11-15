@@ -3,6 +3,7 @@ import {
 	Column,
 	CreateDateColumn,
 	Entity,
+	Index,
 	OneToMany,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn,
@@ -15,6 +16,7 @@ export class Note extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number
 
+	@Index({ fulltext: true })
 	@Column('varchar', { length: 100 })
 	title: string
 

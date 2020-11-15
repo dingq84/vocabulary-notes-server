@@ -15,6 +15,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   createNote?: Maybe<Scalars['Boolean']>;
   updateNote?: Maybe<Scalars['Boolean']>;
+  addMessage?: Maybe<Scalars['String']>;
 };
 
 
@@ -32,6 +33,11 @@ export type MutationUpdateNoteArgs = {
   sentences?: Maybe<Array<Maybe<SentenceInput>>>;
 };
 
+
+export type MutationAddMessageArgs = {
+  input: Scalars['String'];
+};
+
 export type Note = {
   __typename?: 'Note';
   id?: Maybe<Scalars['Int']>;
@@ -44,11 +50,17 @@ export type Query = {
   __typename?: 'Query';
   randomNotes?: Maybe<Array<Maybe<Note>>>;
   noteDetail?: Maybe<Note>;
+  searchNote?: Maybe<Array<Maybe<Note>>>;
 };
 
 
 export type QueryNoteDetailArgs = {
   noteId: Scalars['Int'];
+};
+
+
+export type QuerySearchNoteArgs = {
+  title: Scalars['String'];
 };
 
 export type Sentence = {
@@ -165,6 +177,7 @@ export type ResolversParentTypes = {
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createNote?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationCreateNoteArgs, 'title' | 'url'>>;
   updateNote?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationUpdateNoteArgs, 'noteId'>>;
+  addMessage?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationAddMessageArgs, 'input'>>;
 };
 
 export type NoteResolvers<ContextType = any, ParentType extends ResolversParentTypes['Note'] = ResolversParentTypes['Note']> = {
@@ -178,6 +191,7 @@ export type NoteResolvers<ContextType = any, ParentType extends ResolversParentT
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   randomNotes?: Resolver<Maybe<Array<Maybe<ResolversTypes['Note']>>>, ParentType, ContextType>;
   noteDetail?: Resolver<Maybe<ResolversTypes['Note']>, ParentType, ContextType, RequireFields<QueryNoteDetailArgs, 'noteId'>>;
+  searchNote?: Resolver<Maybe<Array<Maybe<ResolversTypes['Note']>>>, ParentType, ContextType, RequireFields<QuerySearchNoteArgs, 'title'>>;
 };
 
 export type SentenceResolvers<ContextType = any, ParentType extends ResolversParentTypes['Sentence'] = ResolversParentTypes['Sentence']> = {

@@ -18,6 +18,7 @@ type Note {
 type Query {
 	randomNotes: [Note]
 	noteDetail(noteId: Int!): Note
+	searchNote(title: String!): [Note]
 }
 
 type Mutation {
@@ -28,4 +29,5 @@ type Mutation {
 		url: String
 		sentences: [SentenceInput]
 	): Boolean
+	addMessage(input: String!): String
 }

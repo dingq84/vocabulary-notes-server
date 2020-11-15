@@ -11,7 +11,7 @@ let settings = {
 	password: process.env.PASSWORD,
 	synchronize: true,
 	logging: false,
-	// dropSchema: true,
+	dropSchema: true,
 	entities: [`${dir}/entities/**/*.${extension}`],
 	migrations: [`${dir}/migrations/**/*.${extension}`],
 	cli: {

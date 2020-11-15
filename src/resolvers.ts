@@ -18,6 +18,13 @@ export const resolvers: Resolvers & IResolvers = {
 
 			return note
 		},
+		searchNote: async (_, { title }) => {
+			const note = await Note.find({
+				where: `title ILIKE '%${title}%'`,
+				take: 10,
+			})
+			return note
+		},
 	},
 	Mutation: {
 		createNote: async (_, { title, url, sentences }) => {
@@ -43,7 +50,7 @@ export const resolvers: Resolvers & IResolvers = {
 							sentence: sentence?.sentence,
 						})
 					)
-				console.log(sentenceInstances)
+
 				note.sentences = sentenceInstances
 			}
 			await note.save()
